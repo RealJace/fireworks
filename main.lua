@@ -264,6 +264,7 @@ function spawnFirework(position)
 				Sound1:Destroy()
 				Sound2:Destroy()
 				Sound3:Destroy()
+				Firework:Destroy()
 	end)
 	if not sucess then
 		print("Cant do fireworks :(")	
