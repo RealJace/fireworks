@@ -157,8 +157,8 @@ local dbc = false
 
 function spawnFirework(position)
 	local sucess,err = pcall(function()
-			if dbc == false then
-				dbc = true
+			
+				
 				local Firework = Instance.new("Part")
 				local Sound1 = Instance.new("Sound")
 				local Sound2 = Instance.new("Sound")
@@ -264,11 +264,9 @@ function spawnFirework(position)
 				Sound1:Destroy()
 				Sound2:Destroy()
 				Sound3:Destroy()
-				dbc = false
-			end
 	end)
 	if not sucess then
-		dbc = false		
+		print("Cant do fireworks :(")	
 	end
 end
 
