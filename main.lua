@@ -154,15 +154,25 @@ local mouse = owner:GetMouse()
 local char = owner.Character or owner.CharacterAdded:Wait()
 	
 local dbc = false
+	
+local Sound1 = Instance.new("Sound")
+local Sound2 = Instance.new("Sound")
+local Sound3 = Instance.new("Sound")
+Sound1.Name = "Bang"
+Sound1.SoundId = "http://www.roblox.com/asset/?id=160248505"
+Sound1.Volume = 1
+Sound2.Name = "Fountain"
+Sound2.SoundId = "http://www.roblox.com/asset/?id=160248368"
+Sound2.Volume = 1
+Sound3.Name = "Pop"
+Sound3.SoundId = "http://www.roblox.com/asset/?id=160248302"
+Sound3.Volume = 1
 
 function spawnFirework(position)
 	local sucess,err = pcall(function()
 			
 				
 				local Firework = Instance.new("Part")
-				local Sound1 = Instance.new("Sound")
-				local Sound2 = Instance.new("Sound")
-				local Sound3 = Instance.new("Sound")
 				local SpecialMesh4 = Instance.new("SpecialMesh")
 				local ParticleEmitter5 = Instance.new("ParticleEmitter")
 				local ParticleEmitter6 = Instance.new("ParticleEmitter")
@@ -181,18 +191,9 @@ function spawnFirework(position)
 				Firework.brickColor = BrickColor.new("Bright yellow")
 				Firework.FormFactor = Enum.FormFactor.Custom
 				Firework.formFactor = Enum.FormFactor.Custom
-				Sound1.Name = "Bang"
 				Sound1.Parent = Firework
-				Sound1.SoundId = "http://www.roblox.com/asset/?id=160248505"
-				Sound1.Volume = 1
-				Sound2.Name = "Fountain"
 				Sound2.Parent = Firework
-				Sound2.SoundId = "http://www.roblox.com/asset/?id=160248368"
-				Sound2.Volume = 1
-				Sound3.Name = "Pop"
 				Sound3.Parent = Firework
-				Sound3.SoundId = "http://www.roblox.com/asset/?id=160248302"
-				Sound3.Volume = 1
 				SpecialMesh4.Parent = Firework
 				SpecialMesh4.MeshId = "http://www.roblox.com/asset/?id=162969265"
 				SpecialMesh4.Offset = Vector3.new(0, 0, 0.5)
@@ -260,11 +261,6 @@ function spawnFirework(position)
 						i:Emit(100)
 					end
 				end
-				Sound1.Stopped:Wait()
-				Sound1:Destroy()
-				Sound2:Destroy()
-				Sound3:Destroy()
-				Firework:Destroy()
 	end)
 	if not sucess then
 		print("Cant do fireworks :(")	
