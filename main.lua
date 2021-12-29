@@ -152,12 +152,93 @@ end
 
 local mouse = owner:GetMouse()
 local char = owner.Character or owner.CharacterAdded:Wait()
-	
+
 local dbc = false
-	
-local Sound1 = Instance.new("Sound")
-local Sound2 = Instance.new("Sound")
-local Sound3 = Instance.new("Sound")
+
+local Firework = Instance.new("Part")
+local SpecialMesh4 = Instance.new("SpecialMesh")
+local ParticleEmitter5 = Instance.new("ParticleEmitter")
+local ParticleEmitter6 = Instance.new("ParticleEmitter")
+local ParticleEmitter7 = Instance.new("ParticleEmitter")
+Firework.Name = "Firework"
+Firework.Size = Vector3.new(1, 3, 1)
+Firework.Anchored = false
+Firework.BottomSurface = Enum.SurfaceType.Smooth
+Firework.BrickColor = BrickColor.new("Bright yellow")
+Firework.CanCollide = false
+Firework.Elasticity = 0
+Firework.Friction = 1
+Firework.TopSurface = Enum.SurfaceType.Smooth
+Firework.brickColor = BrickColor.new("Bright yellow")
+Firework.FormFactor = Enum.FormFactor.Custom
+Firework.formFactor = Enum.FormFactor.Custom
+SpecialMesh4.Parent = Firework
+SpecialMesh4.MeshId = "http://www.roblox.com/asset/?id=162969265"
+SpecialMesh4.Offset = Vector3.new(0, 0, 0.5)
+SpecialMesh4.Scale = Vector3.new(0.80000001192093, 0.80000001192093, 0.80000001192093)
+SpecialMesh4.TextureId = "http://www.roblox.com/asset/?id=162969520"
+SpecialMesh4.MeshType = Enum.MeshType.FileMesh
+ParticleEmitter5.Name = "Red"
+ParticleEmitter5.Parent = Firework
+ParticleEmitter5.Speed = NumberRange.new(25, 25)
+ParticleEmitter5.Color = ColorSequence.new(Color3.new(1, 0, 0),Color3.new(1, 0, 0))
+ParticleEmitter5.Enabled = false
+ParticleEmitter5.LightEmission = 1
+ParticleEmitter5.LightInfluence = 1
+ParticleEmitter5.Texture = "http://www.roblox.com/asset/?id=129033729"
+ParticleEmitter5.Transparency = NumberSequence.new(0.5,0.5)
+ParticleEmitter5.Size = NumberSequence.new(0.40000000596046,0.80000001192093)
+ParticleEmitter5.Shape = Enum.ParticleEmitterShape.Sphere
+ParticleEmitter5.Acceleration = Vector3.new(0, -30, 0)
+ParticleEmitter5.Lifetime = NumberRange.new(15, 15)
+ParticleEmitter5.Rate = 100
+ParticleEmitter5.SpreadAngle = Vector2.new(-360, 360)
+ParticleEmitter5.VelocitySpread = -360
+ParticleEmitter6.Name = "Green"
+ParticleEmitter6.Parent = Firework
+ParticleEmitter6.Speed = NumberRange.new(25, 25)
+ParticleEmitter6.Color = ColorSequence.new(Color3.new(0, 1, 0),Color3.new(0, 1, 0))
+ParticleEmitter6.Enabled = false
+ParticleEmitter6.LightEmission = 1
+ParticleEmitter6.LightInfluence = 1
+ParticleEmitter6.Texture = "http://www.roblox.com/asset/?id=129033729"
+ParticleEmitter6.Transparency = NumberSequence.new(0.5,0.5)
+ParticleEmitter6.Size = NumberSequence.new(0.40000000596046,0.80000001192093)
+ParticleEmitter6.Shape = Enum.ParticleEmitterShape.Sphere
+ParticleEmitter6.Acceleration = Vector3.new(0, -30, 0)
+ParticleEmitter6.Lifetime = NumberRange.new(15, 15)
+ParticleEmitter6.Rate = 100
+ParticleEmitter6.SpreadAngle = Vector2.new(-360, 360)
+ParticleEmitter6.VelocitySpread = -360
+ParticleEmitter7.Name = "Yellow"
+ParticleEmitter7.Parent = Firework
+ParticleEmitter7.Speed = NumberRange.new(25, 25)
+ParticleEmitter7.Color = ColorSequence.new(Color3.new(1, 1, 0),Color3.new(1, 1, 0))
+ParticleEmitter7.Enabled = false
+ParticleEmitter7.LightEmission = 1
+ParticleEmitter7.LightInfluence = 1
+ParticleEmitter7.Texture = "http://www.roblox.com/asset/?id=129033729"
+ParticleEmitter7.Transparency = NumberSequence.new(0.5,0.5)
+ParticleEmitter7.Size = NumberSequence.new(0.40000000596046,0.80000001192093)
+ParticleEmitter7.Shape = Enum.ParticleEmitterShape.Sphere
+ParticleEmitter7.Acceleration = Vector3.new(0, -30, 0)
+ParticleEmitter7.Lifetime = NumberRange.new(15, 15)
+ParticleEmitter7.Rate = 100
+ParticleEmitter7.SpreadAngle = Vector2.new(-360, 360)
+ParticleEmitter7.VelocitySpread = -360
+
+local SoundSource = Instance.new("Part",script)
+
+SoundSource.Name = "SoundSource"
+SoundSource.Size = Vector3.new(1,1,1)
+SoundSource.CanCollide = false
+SoundSource.Anchored = true
+SoundSource.CanTouch = false
+SoundSource.CanQuery = false
+
+local Sound1 = Instance.new("Sound",SoundSource)
+local Sound2 = Instance.new("Sound",SoundSource)
+local Sound3 = Instance.new("Sound",SoundSource)
 Sound1.Name = "Bang"
 Sound1.SoundId = "http://www.roblox.com/asset/?id=160248505"
 Sound1.Volume = 1
@@ -169,106 +250,42 @@ Sound3.SoundId = "http://www.roblox.com/asset/?id=160248302"
 Sound3.Volume = 1
 
 function spawnFirework(position)
-	local sucess,err = pcall(function()
-			
-				
-				local Firework = Instance.new("Part")
-				local SpecialMesh4 = Instance.new("SpecialMesh")
-				local ParticleEmitter5 = Instance.new("ParticleEmitter")
-				local ParticleEmitter6 = Instance.new("ParticleEmitter")
-				local ParticleEmitter7 = Instance.new("ParticleEmitter")
-				Firework.Name = "Firework"
-				Firework.Parent = script
-				Firework.Position = position
-				Firework.Size = Vector3.new(1, 3, 1)
-				Firework.Anchored = false
-				Firework.BottomSurface = Enum.SurfaceType.Smooth
-				Firework.BrickColor = BrickColor.new("Bright yellow")
-				Firework.CanCollide = false
-				Firework.Elasticity = 0
-				Firework.Friction = 1
-				Firework.TopSurface = Enum.SurfaceType.Smooth
-				Firework.brickColor = BrickColor.new("Bright yellow")
-				Firework.FormFactor = Enum.FormFactor.Custom
-				Firework.formFactor = Enum.FormFactor.Custom
-				Sound1.Parent = Firework
-				Sound2.Parent = Firework
-				Sound3.Parent = Firework
-				SpecialMesh4.Parent = Firework
-				SpecialMesh4.MeshId = "http://www.roblox.com/asset/?id=162969265"
-				SpecialMesh4.Offset = Vector3.new(0, 0, 0.5)
-				SpecialMesh4.Scale = Vector3.new(0.80000001192093, 0.80000001192093, 0.80000001192093)
-				SpecialMesh4.TextureId = "http://www.roblox.com/asset/?id=162969520"
-				SpecialMesh4.MeshType = Enum.MeshType.FileMesh
-				ParticleEmitter5.Name = "Red"
-				ParticleEmitter5.Parent = Firework
-				ParticleEmitter5.Speed = NumberRange.new(25, 25)
-				ParticleEmitter5.Color = ColorSequence.new(Color3.new(1, 0, 0),Color3.new(1, 0, 0))
-				ParticleEmitter5.Enabled = false
-				ParticleEmitter5.LightEmission = 1
-				ParticleEmitter5.LightInfluence = 1
-				ParticleEmitter5.Texture = "http://www.roblox.com/asset/?id=129033729"
-				ParticleEmitter5.Transparency = NumberSequence.new(0.5,0.5)
-				ParticleEmitter5.Size = NumberSequence.new(0.40000000596046,0.80000001192093)
-				ParticleEmitter5.Shape = Enum.ParticleEmitterShape.Sphere
-				ParticleEmitter5.Acceleration = Vector3.new(0, -30, 0)
-				ParticleEmitter5.Lifetime = NumberRange.new(15, 15)
-				ParticleEmitter5.Rate = 100
-				ParticleEmitter5.SpreadAngle = Vector2.new(-360, 360)
-				ParticleEmitter5.VelocitySpread = -360
-				ParticleEmitter6.Name = "Green"
-				ParticleEmitter6.Parent = Firework
-				ParticleEmitter6.Speed = NumberRange.new(25, 25)
-				ParticleEmitter6.Color = ColorSequence.new(Color3.new(0, 1, 0),Color3.new(0, 1, 0))
-				ParticleEmitter6.Enabled = false
-				ParticleEmitter6.LightEmission = 1
-				ParticleEmitter6.LightInfluence = 1
-				ParticleEmitter6.Texture = "http://www.roblox.com/asset/?id=129033729"
-				ParticleEmitter6.Transparency = NumberSequence.new(0.5,0.5)
-				ParticleEmitter6.Size = NumberSequence.new(0.40000000596046,0.80000001192093)
-				ParticleEmitter6.Shape = Enum.ParticleEmitterShape.Sphere
-				ParticleEmitter6.Acceleration = Vector3.new(0, -30, 0)
-				ParticleEmitter6.Lifetime = NumberRange.new(15, 15)
-				ParticleEmitter6.Rate = 100
-				ParticleEmitter6.SpreadAngle = Vector2.new(-360, 360)
-				ParticleEmitter6.VelocitySpread = -360
-				ParticleEmitter7.Name = "Yellow"
-				ParticleEmitter7.Parent = Firework
-				ParticleEmitter7.Speed = NumberRange.new(25, 25)
-				ParticleEmitter7.Color = ColorSequence.new(Color3.new(1, 1, 0),Color3.new(1, 1, 0))
-				ParticleEmitter7.Enabled = false
-				ParticleEmitter7.LightEmission = 1
-				ParticleEmitter7.LightInfluence = 1
-				ParticleEmitter7.Texture = "http://www.roblox.com/asset/?id=129033729"
-				ParticleEmitter7.Transparency = NumberSequence.new(0.5,0.5)
-				ParticleEmitter7.Size = NumberSequence.new(0.40000000596046,0.80000001192093)
-				ParticleEmitter7.Shape = Enum.ParticleEmitterShape.Sphere
-				ParticleEmitter7.Acceleration = Vector3.new(0, -30, 0)
-				ParticleEmitter7.Lifetime = NumberRange.new(15, 15)
-				ParticleEmitter7.Rate = 100
-				ParticleEmitter7.SpreadAngle = Vector2.new(-360, 360)
-				ParticleEmitter7.VelocitySpread = -360
-				Sound2:Play()
-				local force = Instance.new("BodyForce",Firework)
-				force.Force = Vector3.new(0,Firework:GetMass() + 600,0)
-				task.wait(1)
-				force:Destroy()
-				Firework.Transparency = 1
-				Sound1:Play()
-				Sound3:Play()
-				for _,i in pairs(Firework:GetDescendants()) do
-					if i:IsA("ParticleEmitter") then
-						i:Emit(100)
-					end
+	coroutine.wrap(function()
+		local sucess,err = pcall(function()
+			local FireworkClone = Firework:Clone()
+			FireworkClone.Parent = script
+			FireworkClone.Position = position + Vector3.new(math.random(-10,10),3,math.random(-10,10))
+			SoundSource.Position = FireworkClone.Position
+			Sound2:Play()
+			local force = Instance.new("BodyForce",FireworkClone)
+			force.Force = Vector3.new(0,FireworkClone:GetMass() + 600,0)
+			task.wait(1)
+			force:Destroy()
+			FireworkClone.Transparency = 1
+			SoundSource.Position = FireworkClone.Position
+			Sound1:Play()
+			Sound3:Play()
+			for _,i in pairs(FireworkClone:GetDescendants()) do
+				if i:IsA("ParticleEmitter") then
+					i:Emit(math.random(80,120))
 				end
-	end)
-	if not sucess then
-		warn(err)
-	end
+			end
+		end)
+		if not sucess then
+			NLS([[
+				warn(err)
+			]],script)
+		end
+	end)()
 end
 
 mouse.Button1Down:Connect(function()
 	if mouse.Target ~= nil then
-		spawnFirework(mouse.Hit.Position + Vector3.new(0,3,0))
+		if dbc == false then
+			dbc = true
+			spawnFirework(mouse.Hit.Position)
+			task.wait(1)
+			dbc = false
+		end
 	end
 end)
