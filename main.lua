@@ -232,6 +232,7 @@ local SoundSource = Instance.new("Part",script)
 SoundSource.Name = "SoundSource"
 SoundSource.Size = Vector3.new(1,1,1)
 SoundSource.CanCollide = false
+SoundSource.Transparency = 1
 SoundSource.Anchored = true
 SoundSource.CanTouch = false
 SoundSource.CanQuery = false
@@ -241,13 +242,13 @@ local Sound2 = Instance.new("Sound",SoundSource)
 local Sound3 = Instance.new("Sound",SoundSource)
 Sound1.Name = "Bang"
 Sound1.SoundId = "http://www.roblox.com/asset/?id=160248505"
-Sound1.Volume = 1
+Sound1.Volume = 3
 Sound2.Name = "Fountain"
 Sound2.SoundId = "http://www.roblox.com/asset/?id=160248368"
-Sound2.Volume = 1
+Sound2.Volume = 3
 Sound3.Name = "Pop"
 Sound3.SoundId = "http://www.roblox.com/asset/?id=160248302"
-Sound3.Volume = 1
+Sound3.Volume = 3
 
 function spawnFirework(position)
 	coroutine.wrap(function()
