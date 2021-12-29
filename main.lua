@@ -263,7 +263,7 @@ function spawnFirework(position)
 				end
 	end)
 	if not sucess then
-		print("Cant do fireworks :(")	
+		warn(err)
 	end
 end
 
